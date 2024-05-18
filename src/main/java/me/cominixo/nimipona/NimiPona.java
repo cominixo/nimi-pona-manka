@@ -30,12 +30,11 @@ public class NimiPona implements ModInitializer {
 
                 @Override
                 public void reload(ResourceManager manager) {
-                    try {
-                        Resource resource = manager.getResource(new Identifier("nimipona", "toki/tok.json"));
 
+                    var resource_optional = manager.getResource(new Identifier("nimipona", "toki/tok.json"));
+                    if (resource_optional.isPresent()) {
+                        Resource resource = resource_optional.get();
                         ContextualizedLanguage.initializeTranslation(resource);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
                     }
                 }
             });

@@ -2,19 +2,18 @@ package me.cominixo.nimipona;
 
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.text.TranslatableText;
-
+import net.minecraft.text.TranslatableTextContent;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ContextualizedTranslatableText extends TranslatableText {
+public class ContextualizedTranslatableText extends TranslatableTextContent {
 
     private static PlayerInventory playerInventory;
 
     private static Set<String> inventoryContext;
 
     public ContextualizedTranslatableText(String key) {
-        super(key);
+        super(key, "", null);
 
     }
 

@@ -7,6 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -48,7 +49,7 @@ public abstract class ItemMixin {
      */
     @Overwrite
     public Text getName(ItemStack stack) {
-        return new ContextualizedTranslatableText(this.getTranslationKey(stack));
+        return MutableText.of(new ContextualizedTranslatableText(this.getTranslationKey(stack)));
     }
 
     /**
@@ -58,7 +59,7 @@ public abstract class ItemMixin {
      */
     @Overwrite
     public Text getName() {
-        return new ContextualizedTranslatableText(this.getTranslationKey());
+        return MutableText.of(new ContextualizedTranslatableText(this.getTranslationKey()));
     }
 
 

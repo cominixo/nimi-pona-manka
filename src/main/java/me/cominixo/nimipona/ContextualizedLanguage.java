@@ -46,14 +46,18 @@ public class ContextualizedLanguage {
         } else {
             return null;
         }
-        return String.join(" ", possibleTranslations.get(translationKey).subList(0,maxDepth));
+        return possibleTranslations.get(translationKey).get(maxDepth-1);
     }
 
     public static void initializeTranslation(Resource resource) {
 
         Gson gson = new Gson();
-        Reader reader = new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8);
-        possibleTranslations = gson.fromJson(reader, possibleTranslations.getClass());
+        try {
+            Reader reader = new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8);
+            possibleTranslations = gson.fromJson(reader, possibleTranslations.getClass());
+        } catch (Exception ignored){
+
+        }
     }
 
 }

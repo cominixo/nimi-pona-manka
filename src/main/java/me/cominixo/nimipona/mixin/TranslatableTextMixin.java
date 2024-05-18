@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import me.cominixo.nimipona.ContextualizedLanguage;
 import me.cominixo.nimipona.ContextualizedTranslatableText;
 import net.minecraft.text.StringVisitable;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.text.TranslationException;
 import net.minecraft.util.Language;
 import org.jetbrains.annotations.Nullable;
@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 import java.util.function.Consumer;
 
-@Mixin(TranslatableText.class)
+@Mixin(TranslatableTextContent.class)
 public abstract class TranslatableTextMixin {
 
     @Shadow @Final private String key;
